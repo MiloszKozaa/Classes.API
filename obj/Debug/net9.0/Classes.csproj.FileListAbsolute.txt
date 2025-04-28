@@ -133,3 +133,4 @@
 /Users/miloszkoza/Documents/GitHub/Classes/obj/Debug/net9.0/ref/Classes.dll
 /Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Npgsql.dll
 /Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/miloszkoza/Documents/GitHub/Classes/obj/Debug/net9.0/Classes.sourcelink.json
