@@ -13,7 +13,7 @@ namespace Classes.Models
         public float Price { get; set; }
         public Guid StudentId { get; set; }
 
-        private Lesson(Guid id, string description, LessonStatusEnum status, LessonTypeEnum type, DateTime start, DateTime end, float price, Guid studentId, DateTime createdAt, DateTime lastEditedAt)
+        private Lesson(Guid id, string description, LessonStatusEnum status, LessonTypeEnum type, DateTime start, DateTime end, float price, Guid studentId, DateTime createdAt, Guid userId, DateTime lastEditedAt)
         {
             Id = id;
             Description = description;
@@ -25,12 +25,13 @@ namespace Classes.Models
             StudentId = studentId;
 
             CreatedAt = createdAt;
+            UserId = userId;
             LastEditedAt = lastEditedAt;
         }
 
-        public static Lesson Create(Guid studentId, string description, LessonStatusEnum status, LessonTypeEnum type, DateTime start, DateTime end, float price)
+        public static Lesson Create(Guid studentId, string description, LessonStatusEnum status, LessonTypeEnum type, DateTime start, DateTime end, float price, Guid userId)
         {
-            return new Lesson(new Guid(), description, status, type, start, end, price, studentId, DateTime.UtcNow, DateTime.UtcNow);
+            return new Lesson(new Guid(), description, status, type, start, end, price, studentId, DateTime.UtcNow,userId, DateTime.UtcNow);
         }
 
         public Lesson Update(Guid studentId, string description, LessonStatusEnum status, LessonTypeEnum type, DateTime start, DateTime end, float price)

@@ -32,6 +32,10 @@ namespace Classes.Repository
         {
             return await _entities.ToListAsync(cancellationToken);
         }
+        public async Task<List<TEntity>> GetAllByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
+        {
+            return await _entities.Where(e => e.UserId == userId).ToListAsync(cancellationToken);
+        }
 
         public async Task<TEntity?> GetAsync(Guid id, CancellationToken cancellationToken = default)
         {

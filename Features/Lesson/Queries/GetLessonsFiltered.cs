@@ -9,6 +9,6 @@ namespace Classes.Features.Lesson.Queries
 {
     public class GetLessonsFiltered
     {
-        public record GetLessonsFilteredQuery(DateTime? start, DateTime? end) : IRequest<List<LessonDTO>>;
+        public record GetLessonsFilteredQuery(Guid? userId, Guid? studentId,DateTime? start, DateTime? end) : IRequest<List<LessonDTO>>;
     }
 }

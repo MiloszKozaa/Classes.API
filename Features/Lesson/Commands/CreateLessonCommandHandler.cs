@@ -12,13 +12,18 @@ namespace Classes.Features.Lesson.Commands
     {
         private readonly ILessonRepository _lessonRepository;
         private readonly IStudentRepository _studentRepository;
-        public CreateLessonCommandHandler(ILessonRepository lessonRepository, IStudentRepository studentRepository)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public CreateLessonCommandHandler(ILessonRepository lessonRepository, IStudentRepository studentRepository, IHttpContextAccessor httpContextAccessor)
         {
             _studentRepository = studentRepository;
             _lessonRepository = lessonRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<LessonDTO> Handle(CreateLessonCommand.CreateLessonn request, CancellationToken cancellationToken)
         {
+            var userId = AuthHelpers.GetUserIdFromToken(
+                    _httpContextAccessor.HttpContext!
+                );
 
             if (request.start > request.end)
             {
@@ -39,7 +44,7 @@ namespace Classes.Features.Lesson.Commands
                 throw new Exception("Student not found");
             }
 
-            var lesson = await _lessonRepository.AddAsync(Models.Lesson.Create(request.studentId, request.description, request.status, request.type, request.start, request.end, request.price), cancellationToken);
+            var lesson = await _lessonRepository.AddAsync(Models.Lesson.Create(request.studentId, request.description, request.status, request.type, request.start, request.end, request.price, userId), cancellationToken);
 
             return LessonDTO.From(lesson);
         }

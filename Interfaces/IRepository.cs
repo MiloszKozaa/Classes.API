@@ -11,6 +11,7 @@ namespace Classes.Interfaces
         Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default);
         Task<TEntity?> GetAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
+        Task<List<TEntity>> GetAllByUserIdAsync(Guid userId, CancellationToken cancellationToken = default);
         Task RemoveAsync(TEntity entity, CancellationToken cancellationToken = default);
     }
 }

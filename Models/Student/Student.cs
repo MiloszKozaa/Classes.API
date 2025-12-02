@@ -11,7 +11,7 @@ namespace Classes.Models
         private List<ExternalProfile> _externalProfiles;
         public List<ExternalProfile>? ExternalProfiles => _externalProfiles ?? new List<ExternalProfile>();
 
-        private Student(Guid id, string username, string firstName, string lastName, string email, string phoneNumber, DateTime createdAt, DateTime lastEditedAt)
+        private Student(Guid id, string username, string firstName, string lastName, string email, string phoneNumber, DateTime createdAt,Guid userId, DateTime lastEditedAt)
         {
             Id = id;
       
@@ -22,12 +22,13 @@ namespace Classes.Models
             PhoneNumber = phoneNumber;
 
             CreatedAt = createdAt;
+            UserId = userId;
             LastEditedAt = lastEditedAt;
         }
 
-        public static Student Create(string username, string firstName, string lastName, string email, string phoneNumber)
+        public static Student Create(string username, string firstName, string lastName, string email, string phoneNumber, Guid userId)
         {
-            return new Student(new Guid(), username, firstName, lastName, email, phoneNumber, DateTime.UtcNow, DateTime.UtcNow);
+            return new Student(new Guid(), username, firstName, lastName, email, phoneNumber, DateTime.UtcNow, userId, DateTime.UtcNow);
         }
 
         public Student Update(string username, string firstName, string lastName, string email, string phoneNumber)
@@ -60,6 +61,3 @@ namespace Classes.Models
         }
     }
 }
-
-// student - 01964e5e-5519-78c3-86d4-73a5696ea987
-// profile - 01965042-1546-7161-bc7c-1aaa16924015

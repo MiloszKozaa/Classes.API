@@ -134,3 +134,11 @@
 /Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Npgsql.dll
 /Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/miloszkoza/Documents/GitHub/Classes/obj/Debug/net9.0/Classes.sourcelink.json
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/miloszkoza/Documents/GitHub/Classes/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll

@@ -19,7 +19,7 @@ namespace Classes.Repository
 
         public async Task<List<Lesson>> GetFilteredDateRangeAsync(DateTime? start, DateTime? end, CancellationToken cancellationToken = default)
         {
-            return await _context.Lessons.Where(l => (start == null || start < l.Start) && (end == null || end > l.End)).ToListAsync(cancellationToken);
+            return await _context.Lessons.ToListAsync(cancellationToken);
         }
 
         public async Task<List<Lesson>> GetByStudentIdAsync(Guid studentId, CancellationToken cancellationToken = default)

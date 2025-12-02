@@ -12,14 +12,20 @@ namespace Classes.Features.Student.Commands
     {
 
         private readonly IStudentRepository _studentRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CreateStudentCommandHandler(IStudentRepository studentRepository)
+        public CreateStudentCommandHandler(IStudentRepository studentRepository, IHttpContextAccessor httpContextAccessor)
         {
             _studentRepository = studentRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<StudentDTO> Handle(CreateStudentCommand.CreateStudent request, CancellationToken cancellationToken)
         {
+            var userId = AuthHelpers.GetUserIdFromToken(
+                    _httpContextAccessor.HttpContext!
+                );
+
 
             // if(_studentRepository.UsernameExistsAsync(request.username, cancellationToken).Result)
             // {
@@ -31,7 +37,7 @@ namespace Classes.Features.Student.Commands
             //     throw new Exception("Email already exists");
             // }
 
-            var student = await _studentRepository.AddAsync(Models.Student.Create(request.username, request.firstName, request.lastName, request.phoneNumber, request.email), cancellationToken);
+            var student = await _studentRepository.AddAsync(Models.Student.Create(request.username, request.firstName, request.lastName, request.phoneNumber, request.email, userId), cancellationToken);
 
             return StudentDTO.From(student);
         }

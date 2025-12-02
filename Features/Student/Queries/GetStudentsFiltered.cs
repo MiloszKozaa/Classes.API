@@ -9,6 +9,6 @@ namespace Classes.Features.Student.Queries
 {
     public class GetStudentsFiltered
     {
-        public record GetStudentFilteredQuery(string? Search) : IRequest<List<StudentDTO>>;
+        public record GetStudentFilteredQuery(Guid? userId, string? Search) : IRequest<List<StudentDTO>>;
     }
 }
